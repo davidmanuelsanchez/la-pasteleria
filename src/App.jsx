@@ -1,14 +1,19 @@
-import NavBar from "./components/Navbar";
-import ItemListContainer from "./components/ItemListContainer";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainLayout from "./Layout/MainLayout";
+import Home from "./pages/Home";
+import Product from "./pages/Product";
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <NavBar />
-      <ItemListContainer greeting="¡Bienvenidos a David Pastelería!" />
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Product />} />
+        </Routes>
+      </MainLayout>
     </Router>
   );
-};
+}
 
 export default App;
